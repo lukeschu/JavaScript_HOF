@@ -8,27 +8,28 @@ console.log("EXERCISE 1:\n==========\n");
 
 // Declare a function plus that takes in a number parameter.
 // Inside the body of plus, use the return keyword to
-//  return an anonymous function
+//    return an anonymous function
 // The return function will take in a plusNumber parameter,
-//  and return the value of plusNumber with the first parameter number
+//    and return the value of plusNumber with the first
+//    parameter number
 // Next, declare a variable plus15 that is assigned the
-//  value of plus with 15 passed in
+//    value of plus with 15 passed in
 // console.log the result of plus15 with 10 passed in
 // End result should resemble:
-//  console.log(plus15(10)) // Outputs 25
+//    console.log(plus15(10)) // Outputs 25
 
 function plus(number) {
   return function (plusNumber = 0) {
-    plusNumber += number;
-    return plusNumber;
+    return plusNumber + number;
   };
 }
-
+console.log(plus(17)(12));
 let plus15 = plus(15);
 console.log(plus15(10));
 let plus47 = plus(47);
 console.log(plus47(12));
 console.log(plus47());
+console.log(plus(19)());
 
 // Exercise 2 Section
 console.log("EXERCISE 2:\n==========\n");
@@ -75,9 +76,14 @@ console.log("EXERCISE 3:\n==========\n");
 // containing objects with names and scores. Start with the
 // previously defined users array.
 
-users.map((element) => {
-  console.log(element.name, element.score);
+let mapResult = users.map((element) => {
+  return {
+    name: element.name,
+    score: element.score,
+  };
 });
+
+console.log(mapResult);
 
 // Exercise 4 Section
 console.log("EXERCISE 4:\n==========\n");
@@ -104,7 +110,7 @@ console.log("EXERCISE 6:\n==========\n");
 // Use the Array reduce method to return sum of all
 // users' scores. Once you have the sum of all scores,
 // find the average score from the users. Start with the
-//  previously defined users array.
+// previously defined users array.
 
 const arrayScoreSum = users.reduce((acc, curr) => {
   acc += curr.score;
